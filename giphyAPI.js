@@ -42,9 +42,9 @@
 					
 					$("#GIF-view").html="";
 					for (var x = 0; x < 10; x++) {
-						const embedURL = response.data[x].embed_url;
-						// const gifURL = "https://giphy.com/gifs/" + response.data[x].slug;
-						$("#GIF-view").append(`<div class="col-4"><div style="width:100%;height:100%;padding-bottom:76%;position:relative;"><embed src="${embedURL}" width="100%" height="100%" style="position:absolute"></embed></div></div>`);
+						// const embedURL = response.data[x].embed_url;
+						const gifURL = "https://media.giphy.com/media/" + response.data[x].id + "/giphy.mp4";
+						$("#GIF-view").append(`<div class="col-4" style="width:100%;height:auto;position:relative;"><video loop muted playsinline><source src="${gifURL}" type="video/mp4"></video></div>`);
 					} 
 				}
 				else {
