@@ -10,8 +10,19 @@
 	<link rel="stylesheet" href="./style.css">
 </head>
 <body>
-
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+	<div class="container">
+		<h1>GIF Search</h1>
+		<!-- The selected search terms will be presented here -->
+		<div id="buttons-view"></div>
+		<form id="term-form">
+			<label for="term-input">Type a Search Term</label>
+			<input type="text" id="term-input"><br>
+			<!-- Button triggers new search term to be added -->
+			<input id="add-term" type="submit" value="Add GIF Button">
+		</form>
+		<div id="GIF-view"></div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="./giphyAPI.js"></script>
 </body>
 </html>
