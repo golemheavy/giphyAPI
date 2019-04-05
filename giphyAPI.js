@@ -22,6 +22,13 @@
 		}
 		else alert("That term is already listed or is blank!");
 	});
+	
+	// This function plays videos or pauses them when they are clicked
+	$(document).on('click', '#video' , function() {
+		// event.preventDefault(); // apparently this prevents reload of the page upon click
+		console.log(this);
+		this.play();
+	});
 
 // Calling the renderButtons function to display the initial list of giphy search terms
 	renderButtons();
@@ -44,7 +51,7 @@
 					for (var x = 0; x < 10; x++) {
 						// const embedURL = response.data[x].embed_url;
 						const gifURL = "https://media.giphy.com/media/" + response.data[x].id + "/giphy.mp4";
-						$("#GIF-view").append(`<div class="col-4" style="width:100%;height:auto;position:relative;"><video loop muted playsinline><source src="${gifURL}" type="video/mp4"></video></div>`);
+						$("#GIF-view").append(`<div class="col-4" style="width:100%;height:auto;position:relative;"><video loop muted playsinline id="video"><source src="${gifURL}" type="video/mp4"></video></div>`);
 					} 
 				}
 				else {
@@ -52,9 +59,3 @@
 				}
 			});
 	  });
-///////////////////////////////var myJSON = JSON.stringify(response);
-/////////////////////////////////////$("#movie-view").html(myJSON);
-/////////////////////////////$("#GIF-view").html(JSON.stringify(response, null, 8).split('\n').join('<br/>').split(' ').join('&nbsp'));
-//var myJSON = JSON.stringify(response);
-
-// <div style="width:100%;height:0;padding-bottom:76%;position:relative;"><iframe src="https://giphy.com/embed/oeGgcmHVHLVCg" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/star-wars-clones-oeGgcmHVHLVCg">via GIPHY</a></p>
