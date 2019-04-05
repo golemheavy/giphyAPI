@@ -40,10 +40,7 @@
 				if (typeof response !== "undefined") { //  && typeof response.Poster !== "undefined" && response.Poster !== "N/A") {
 					const embedURL = response.data[0].embed_url;
 					const gifURL = response.data[0].url;
-					
-					//console.log(response.data[0].embed_url);
-					//console.log(response.data[0].url);
-					$("#GIF-view").html(`<div style="width:100%;height:0;padding-bottom:76%;position:relative;"><iframe src="${embedURL}" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="${gifURL}">via GIPHY</a></p>`);
+					$("#GIF-view").html(`<div class="container-fluid"><div class="row"><div class="col"><div style="width:100%;height:0;padding-bottom:76%;position:relative;"><iframe src="${embedURL}" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="${gifURL}">via GIPHY</a></p></div></div></div>`);
 				}
 				else {
 					alert('That search results in "undefined"'); // does this branch matter?
