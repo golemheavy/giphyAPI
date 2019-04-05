@@ -16,11 +16,11 @@
 	$("#add-term").on("click", function(event) {
 		event.preventDefault(); // apparently this prevents reload of the page upon click
 		var newTerm = $("#term-input").val();
-		if (!topics.includes(newTerm)) {
+		if (newTerm.trim() && !topics.includes(newTerm)) {
 			topics.push(newTerm);
 			renderButtons();
 		}
-		else alert("That term is already listed!");
+		else alert("That term is already listed or is blank!");
 	});
 
 // Calling the renderButtons function to display the initial list of giphy search terms
@@ -38,11 +38,15 @@
 		}).then(
 			function(response) {
 				if (typeof response !== "undefined") { //  && typeof response.Poster !== "undefined" && response.Poster !== "N/A") {
-					// console.log(response.data[0].embed_url);
-					$("#GIF-view").html(`<img src="${response.data[0].embed_url}">`);
+					const embedURL = response.data[0].embed_url;
+					const gifURL = response.data[0].url;
+					
+					//console.log(response.data[0].embed_url);
+					//console.log(response.data[0].url);
+					$("#GIF-view").html(`<div style="width:100%;height:0;padding-bottom:76%;position:relative;"><iframe src="${embedURL}" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="${gifURL}">via GIPHY</a></p>`);
 				}
 				else {
-					alert('That search returns "N/A"'); // does this branch matter?
+					alert('That search results in "undefined"'); // does this branch matter?
 				}
 			});
 	  });
@@ -50,3 +54,5 @@
 /////////////////////////////////////$("#movie-view").html(myJSON);
 /////////////////////////////$("#GIF-view").html(JSON.stringify(response, null, 8).split('\n').join('<br/>').split(' ').join('&nbsp'));
 //var myJSON = JSON.stringify(response);
+
+// <div style="width:100%;height:0;padding-bottom:76%;position:relative;"><iframe src="https://giphy.com/embed/oeGgcmHVHLVCg" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/star-wars-clones-oeGgcmHVHLVCg">via GIPHY</a></p>
