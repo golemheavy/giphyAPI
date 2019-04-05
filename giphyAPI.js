@@ -26,8 +26,8 @@
 	// This function plays videos or pauses them when they are clicked
 	$(document).on('click', '#video' , function() {
 		// event.preventDefault(); // apparently this prevents reload of the page upon click
-		console.log(this);
-		this.play();
+		if (this.paused) this.play();
+		else if (!this.paused) this.pause();
 	});
 
 // Calling the renderButtons function to display the initial list of giphy search terms
@@ -44,8 +44,7 @@
 			method: "GET"
 		}).then(
 			function(response) {
-				if (typeof response !== "undefined") { //  && typeof response.Poster !== "undefined" && response.Poster !== "N/A") {
-					console.log(response);
+				if (typeof response !== "undefined") { 
 					
 					$("#GIF-view").html="";
 					for (var x = 0; x < 10; x++) {
