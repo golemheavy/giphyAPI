@@ -30,7 +30,7 @@
 	$(document).on('click', '.term' , function() {
 		const APIkey = 'Ti8BvxplJrAjpfUL0ClAKFNhrqpcbIjB' ;
 		var term = $(this).text();
-		queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + APIkey + "&q=" + term + "&limit=1&offset=0&rating=G&lang=en"; // note: search term might have spaces in it -- check if this is a problem
+		queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + APIkey + "&q=" + term + "&limit=10&offset=0&rating=G&lang=en"; // note: search term might have spaces in it -- check if this is a problem
 	// This function performs the return and formatting of the JSON data returned by the API call
 		$.ajax({
 			url: queryURL,
@@ -38,9 +38,14 @@
 		}).then(
 			function(response) {
 				if (typeof response !== "undefined") { //  && typeof response.Poster !== "undefined" && response.Poster !== "N/A") {
-					const embedURL = response.data[0].embed_url;
-					const gifURL = response.data[0].url;
-					$("#GIF-view").html(`<div class="container-fluid"><div class="row"><div class="col"><div style="width:100%;height:0;padding-bottom:76%;position:relative;"><iframe src="${embedURL}" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="${gifURL}">via GIPHY</a></p></div></div></div>`);
+					console.log(response);
+					
+					$("#GIF-view").html="";
+					for (var x = 0; x < 10; x++) {
+						const embedURL = response.data[x].embed_url;
+						// const gifURL = "https://giphy.com/gifs/" + response.data[x].slug;
+						$("#GIF-view").append(`<div class="col-4"><div style="width:100%;height:100%;padding-bottom:76%;position:relative;"><embed src="${embedURL}" width="100%" height="100%" style="position:absolute"></embed></div></div>`);
+					} 
 				}
 				else {
 					alert('That search results in "undefined"'); // does this branch matter?
