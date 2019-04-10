@@ -4,7 +4,7 @@
 
 // This function builds a button using a string argument
 	function makeButton(str) {
-		return `<button class="term">${str}</button>`
+		return `<button class="btn btn-primary term">${str}</button>`
 	}
       
 // Function for displaying buttons for each search term in the array
