@@ -1,6 +1,6 @@
 // Initial array of gif search keywords
 
-      var topics = [];
+      var topics = ["street fighter","mortal kombat","tekken","smash bros"];
 
 // This function builds a button using a string argument
 	function makeButton(str) {
@@ -35,6 +35,7 @@
 
 // This function performs the actual API call
 	$(document).on('click', '.term' , function() {
+		$("#GIF-view").empty();
 		const APIkey = 'Ti8BvxplJrAjpfUL0ClAKFNhrqpcbIjB' ;
 		var term = $(this).text();
 		queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + APIkey + "&q=" + term + "&limit=10&offset=0&rating=G&lang=en"; // note: search term might have spaces in it -- check if this is a problem
@@ -45,16 +46,15 @@
 		}).then(
 			function(response) {
 				if (typeof response !== "undefined") { 
-					
 					$("#GIF-view").html="";
 					for (var x = 0; x < 10; x++) {
-						// const embedURL = response.data[x].embed_url;
 						const gifURL = "https://media.giphy.com/media/" + response.data[x].id + "/giphy.mp4";
-						$("#GIF-view").append(`<div class="col-md-3 gif"><video loop muted playsinline id="video"><source src="${gifURL}" type="video/mp4"></video></div>`);
+						const rating = response.data[x].rating;
+						$("#GIF-view").append(`<div class="col-md-3 gif"><video loop muted playsinline id="video"><source src="${gifURL}" type="video/mp4"></video>Rating: ${rating}</div>`);
 					} 
 				}
 				else {
-					alert('That search results in "undefined"'); // does this branch matter?
+					alert('API Connection Error"'); 
 				}
 			});
 	  });
