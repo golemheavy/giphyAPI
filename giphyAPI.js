@@ -37,10 +37,9 @@
 	$(document).on('click', '.term' , function() {
 		$("#GIF-view").empty();
 		const APIkey = 'Ti8BvxplJrAjpfUL0ClAKFNhrqpcbIjB' ;
-		var term = $(this).text();
-		queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + APIkey + "&q=" + term + "&limit=10&offset=0&rating=G&lang=en"; // note: search term might have spaces in it -- check if this is a problem
-	// This function performs the return and formatting of the JSON data returned by the API call
-		$.ajax({
+		var term = $(this).text().split(' ').join('+'); // this replaces spaces with plus signs in accordance with the API documentation, even though the API parses spaces correctly
+		queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + APIkey + "&q=" + term + "&limit=10&offset=0&rating=G&lang=en"; 
+		$.ajax({  // This function performs the return and formatting of the JSON data returned by the API call
 			url: queryURL,
 			method: "GET"
 		}).then(
