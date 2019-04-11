@@ -1,6 +1,6 @@
 // Initial array of gif search keywords
 
-      var topics = ["street fighter","mortal kombat","tekken","smash bros"];
+      var topics = ["street fighter","mortal kombat","tekken","smash bros", "virtua fighter", "soulcalibur", "capcom vs marvel", "mortal kombat vs. dc universe"];
 
 // This function builds a button using a string argument
 	function makeButton(str) {
