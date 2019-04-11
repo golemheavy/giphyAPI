@@ -12,3 +12,12 @@ video {
 	width: 100%;
 	height: auto;
 }
+
+.btn-primary {
+	border-radius: 1rem;
+}
+
+.btn-secondary {
+	border-radius: .5rem;
+	margin-bottom: 10px;
+}
