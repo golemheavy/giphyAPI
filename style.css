@@ -21,3 +21,8 @@ p {
 	line-height: 1em;
 	margin-bottom: 1.5rem;
 }
+
+.col {
+	padding-left: .5rem;
+	padding-right: .5rem;
+}
