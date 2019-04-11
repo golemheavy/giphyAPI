@@ -2,15 +2,10 @@
 	margin: 10px 10px;
 }
 
-.gif {
-	
-    position: relative;
-    margin: 1 rem;
-}
-
 video {
-	width: 100%;
-	height: auto;
+	width: auto;
+	height: 10rem;
+	text-align: left;
 }
 
 .btn-primary {
@@ -20,4 +15,9 @@ video {
 .btn-secondary {
 	border-radius: .5rem;
 	margin-bottom: 10px;
+}
+
+p {
+	line-height: 1em;
+	margin-bottom: 1.5rem;
 }

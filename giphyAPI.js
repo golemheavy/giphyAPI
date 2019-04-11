@@ -49,7 +49,7 @@
 					for (var x = 0; x < 10; x++) {
 						const gifURL = "https://media.giphy.com/media/" + response.data[x].id + "/giphy.mp4";
 						const rating = response.data[x].rating;
-						$("#GIF-view").append(`<div class="col-md-3 gif"><video loop muted playsinline id="video"><source src="${gifURL}" type="video/mp4"></video>Rating: ${rating}</div>`);
+						$("#GIF-view").append(`<div class="col"><video loop muted playsinline id="video"><source src="${gifURL}" type="video/mp4"></video><p>Rating: ${rating}</p></div>`);
 					} 
 				}
 				else {
