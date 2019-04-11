@@ -2,13 +2,10 @@
 	margin: 10px 10px;
 }
 
-.col {
-}
-
 .gif {
 	
     position: relative;
-    margin: auto;
+    margin: 1 rem;;
 }
 
 video {
