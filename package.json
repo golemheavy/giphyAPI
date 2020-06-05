@@ -1,0 +1,24 @@
+{
+  "name": "giphyapi",
+  "version": "1.0.0",
+  "description": "An application utilizing the GIPHY api.",
+  "main": "giphyAPI.js",
+  "dependencies": {
+    "serve": "^11.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "serve": "serve .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/golemheavy/giphyAPI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/golemheavy/giphyAPI/issues"
+  },
+  "homepage": "https://github.com/golemheavy/giphyAPI#readme"
+}
